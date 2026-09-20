@@ -30,6 +30,8 @@ const studentsResponse: ApiResponse<Student[]> = {
   success: true,
   data: [student],
 };
+console.log("Student response:", studentResponse);
+console.log("Students response:", studentsResponse);
 
 console.log(formatStudent(student));
 
@@ -71,3 +73,19 @@ const invalidStudentName: unknown = {
 console.log("Valid student:", isStudent(validStudent));
 console.log("Invalid ID:", isStudent(invalidStudentId));
 console.log("Missing name:", isStudent(invalidStudentName));
+
+type StudentStatus = "active" | "inactive";
+
+function getStudentStatusLabel(status: StudentStatus): string {
+  switch (status) {
+    case "active":
+      return "Active Student";
+    case "inactive":
+      return "Inactive Student";
+    default:
+      return "Unknown Status";
+  }
+}
+
+console.log("Active label:", getStudentStatusLabel("active"));
+console.log("Inactive label:", getStudentStatusLabel("inactive"));
